@@ -1,14 +1,8 @@
-<div igxLayout>
-  <igx-nav-drawer #nav id="project-menu" isOpen="true" [enableGestures]='true' width="280px">
-    <ng-template igxDrawer>
-      <span igxDrawerItem [isHeader]="true">Views</span>
-      <span *ngFor="let route of topNavLinks" igxDrawerItem igxRipple routerLinkActive="igx-nav-drawer__item--active" routerLink="{{route.path}}">{{route.name}}</span>
-    </ng-template>
-  </igx-nav-drawer>
-  <div  class="main" igxFlex igxLayout igxLayoutDir="columns">
-    <igx-navbar title="ignite-ui-tutorial" actionButtonIcon="menu" (onAction)="nav.toggle()"></igx-navbar>
-    <div class="content" igxFlex>
-      <router-outlet></router-outlet>
-     </div>
-  </div>
+<div style="text-align: center;">
+  <h1>
+    Welcome to {{title}}
+  </h1>
+  <img width="300" src="https://static.infragistics.com/marketing/Website/General/infragistics_vertical_logo.svg">
 </div>
+<h2>Please pick a date:</h2><br/>
+<igx-datePicker item-width="50%" [value]="date" [formatter]="formatter"></igx-datePicker>

@@ -19,6 +19,16 @@ export class AppComponent implements OnInit {
   }> = [];
   @ViewChild(IgxNavigationDrawerComponent) public navdrawer: IgxNavigationDrawerComponent;
 
+  title = 'App';
+  public date: Date = new Date(Date.now());
+
+  private dayFormatter = new Intl.DateTimeFormat('en', {weekday: 'long'});
+  private monthFormatter = new Intl.DateTimeFormat('en', {month: 'long'});
+
+  public formatter = (_: Date) => {
+    return `You selected ${this.dayFormatter.format(_)}, ${_.getDate()} ${this.monthFormatter.format(_)}, ${_.getFullYear()}`;
+  }
+
   constructor(private router: Router) {
     for (const route of routes) {
       if (route.path && route.data && route.path.indexOf('*') === -1) {
